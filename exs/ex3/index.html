@@ -35,14 +35,40 @@
                 justify-content: center;
                 align-items: center;
                 padding: 10px;
-
+            }
+            #bar {
+                width: 0px;
+                height: 10px;
+                background-color: #BAD;
+                transition: width 0.2s;
             }
         </style>
         <div id='counter'>
-            <button>-</button>
+            <button onclick="dec()">-</button>
             <div>1</div>
-            <button>+</button>
+            <button onclick="inc()">+</button>
         </div>
+        <div id='bar'></div>
+        <script>
+            var num = 1;
+            function dec(){
+                // console.log("change backgound color");
+                // debugger;
+                // console.log("change text");
+                // debugger;
+                num = num - 1;
+                document.querySelector('#counter > div').innerText = num;
+                document.querySelector('#bar').style.width = (num*10)+"px";
+
+            }
+
+            function inc(){
+                num = num + 1;
+                document.querySelector("#counter > div").innerText = num;
+                document.querySelector("#bar").style.width = (num*10)+"px";
+
+            }
+        </script>
 
     </body>
 </html>
